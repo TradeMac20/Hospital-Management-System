@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Doctor Dashboard</h1>
+                <div class="btn-group-vertical btn-group-lg d-flex flex-column align-items-center">
+                    <a href="{{ url_for('assigned_patients') }}" class="btn btn-primary my-2">View Assigned Patients</a>
+                    <a href="{{ url_for('view_all_patients') }}" class="btn btn-primary my-2">View All Patients</a>
+                    <a href="{{ url_for('view_patient_by_id') }}" class="btn btn-primary my-2">View Patient by ID</a>
+                    <a href="{{ url_for('write_doctor_review') }}" class="btn btn-primary my-2">Write Doctor Review</a>
+                    <a href="{{ url_for('update_doctor_review') }}" class="btn btn-primary my-2">Update Doctor Review</a>
+                    <a href="{{ url_for('view_patient_review') }}" class="btn btn-primary my-2">View Patient Review</a>
+                </div>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

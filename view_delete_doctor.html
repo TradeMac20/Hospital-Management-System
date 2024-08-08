@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <div class="about-container">
+                <h2>Doctor Details</h2>
+                <p><strong>Name:</strong> Dr. {{ doctor.last_name }}, {{ doctor.first_name }}</p>
+                <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+                <p><strong>Years of Experience:</strong> {{ doctor.years_of_experience }}</p>
+                <form method="POST" action="{{ url_for('confirm_delete', role='doctor', id=doctor.id) }}">
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

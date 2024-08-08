@@ -1,0 +1,11 @@
+<!-- templates/logout_button.html -->
+<div class="text-center mt-3">
+    <button class="btn btn-danger" id="logout-button">Logout</button>
+</div>
+<script>
+    document.getElementById('logout-button').addEventListener('click', function() {
+        if (confirm('Are you sure you want to logout?')) {
+            window.location.href = '{{ url_for("logout") }}';
+        }
+    });
+</script>

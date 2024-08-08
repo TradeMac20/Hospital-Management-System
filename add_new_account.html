@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+                <h2>Add New Account</h2>
+                <form method="POST" action="{{ url_for('add_new_account') }}">
+                    <div class="form-group">
+                        <label for="user_type">User Type</label>
+                        <select class="form-control" id="user_type" name="user_type" required>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="pharmacist">Pharmacist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="years_of_experience">Years of Experience</label>
+                        <input type="number" class="form-control" id="years_of_experience" name="years_of_experience" required>
+                    </div>
+                    <div class="form-group" id="doctor_specialization">
+                        <label for="specialization">Specialization</label>
+                        <select class="form-control" id="specialization" name="specialization">
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Oncology">Oncology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Pulmonology">Pulmonology</option>
+                            <option value="Gastroenterology">Gastroenterology</option>
+                            <option value="Endocrinology">Endocrinology</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="nurse_department" style="display: none;">
+                        <label for="department">Department</label>
+                        <select class="form-control" id="department" name="department">
+                            <option value="Pediatric Nursing">Pediatric Nursing</option>
+                            <option value="Critical Care Nursing">Critical Care Nursing</option>
+                            <option value="Oncology Nursing">Oncology Nursing</option>
+                            <option value="Cardiac Nursing">Cardiac Nursing</option>
+                            <option value="Neonatal Nursing">Neonatal Nursing</option>
+                            <option value="Psychiatric Nursing">Psychiatric Nursing</option>
+                            <option value="Surgical Nursing">Surgical Nursing</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="pharmacist_license" style="display: none;">
+                        <label for="license_number">License Number</label>
+                        <input type="text" class="form-control" id="license_number" name="license_number">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Account</button>
+                </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var userTypeSelect = document.getElementById('user_type');
+    var doctorSpecialization = document.getElementById('doctor_specialization');
+    var nurseDepartment = document.getElementById('nurse_department');
+    var pharmacistLicense = document.getElementById('pharmacist_license');
+
+    // Show corresponding fields based on initial user_type selection
+    toggleFields(userTypeSelect.value);
+
+    // Add event listener for user_type change
+    userTypeSelect.addEventListener('change', function() {
+        toggleFields(this.value);
+    });
+
+    function toggleFields(userType) {
+        doctorSpecialization.style.display = (userType === 'doctor') ? 'block' : 'none';
+        nurseDepartment.style.display = (userType === 'nurse') ? 'block' : 'none';
+        pharmacistLicense.style.display = (userType === 'pharmacist') ? 'block' : 'none';
+    }
+});
+</script>
+
+<div class="d-flex justify-content-between">
+    {% include 'back_button.html' %}
+    {% include 'logout_button.html' %}
+</div>
+
+{% endblock %}

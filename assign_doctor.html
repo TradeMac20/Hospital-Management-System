@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Assign Doctor{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Assign Doctor to Patient</h1>
+                <form action="{{ url_for('assign_doctor') }}" method="POST">
+                    <div class="form-group">
+                        <label for="patient_id">Patient ID</label>
+                        <input type="text" class="form-control" id="patient_id" name="patient_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization">Doctor Specialization</label>
+                        <select class="form-control" id="specialization" name="specialization" required>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Oncology">Oncology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Pulmonology">Pulmonology</option>
+                            <option value="Gastroenterology">Gastroenterology</option>
+                            <option value="Endocrinology">Endocrinology</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Find Doctors</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

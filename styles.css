@@ -1,0 +1,143 @@
+/* styles.css */
+
+/* General Styles */
+
+/* Main Body Background Color */
+body {
+    background-color: #a8fa65;
+    /* Light gray or your preferred light color */
+}
+
+/* Custom Container Styles */
+.about-container {
+    background-color: #fdffea;
+    /* Light gray or your preferred color */
+    padding: 20px;
+    /* Adjust padding as needed */
+    margin-bottom: 20px;
+    /* Optional: add margin at the bottom for spacing */
+    border-radius: 10px;
+    /* Optional: add border radius for rounded corners */
+    box-shadow: 0 6px 8px rgba(4, 0, 255, 0.1);
+    /* Optional: add box shadow for depth */
+}
+
+/* Navbar Styles */
+
+/* Navbar Styles */
+.navbar-custom {
+    background-color: #5c0600;
+    /* Change to your desired background color */
+    color: #ffffff;
+    /* Change to your desired text color */
+    width: 100%;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #ffffff;
+    /* Change to your desired link color */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #e5ff00;
+    /* Change to your desired hover color */
+}
+
+/* Jumbotron Styles */
+
+.jumbotron {
+    background-color: #f8f9fa;
+    /* Light gray background for jumbotron */
+    padding: 100px 0;
+    /* Padding top and bottom */
+    text-align: center;
+}
+
+.hospital-logo-container {
+    margin-top: 30px;
+}
+
+
+.hospital-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    /* Adjust maximum height as needed */
+    display: block;
+    margin: 0 auto;
+    /* Center align the logo horizontally */
+    border-radius: 10px;
+    /* Optional: Add rounded corners */
+}
+
+/* About Section Styles */
+
+#about {
+    /* White background for about section */
+    padding: 50px 0;
+    /* Padding top and bottom */
+}
+
+
+.section-heading {
+    font-size: 32px;
+    /* Larger font size for section headings */
+    color: #333333;
+    /* Dark gray heading color */
+    margin-bottom: 30px;
+}
+
+.subheading {
+    color: #007bff;
+    /* Blue color for subheadings */
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.section-content {
+    font-size: 18px;
+    /* Font size for section content */
+}
+
+/* Image Section Styles */
+
+#image-section {
+    /* Light gray background for image section */
+    padding: 30px 0;
+    /* Padding top and bottom */
+
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
+    /* Rounded corners for images */
+}
+
+.image-container img:hover {
+    transform: scale(1.15);
+    /* Increase size on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /* Light shadow on hover */
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: #317589;
+    /* Dark teal footer */
+    color: #fff;
+    /* White text color */
+    padding: 20px 0;
+    /* Padding top and bottom */
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Patients{% endblock %}
+
+{% block content %}
+
+        <!-- Main Content -->
+                   
+                    <h2 class="text-center">View Records</h2>
+                    <form method="POST" action="{{ url_for('view_records') }}">
+                        <div class="form-group">
+                            <label for="record_type">Select Record Type:</label>
+                            <select class="form-control" id="record_type" name="record_type" required>
+                                <option value="" disabled selected>Select a record type</option>
+                                <option value="doctor">Doctors</option>
+                                <option value="nurse">Nurses</option>
+                                <option value="pharmacist">Pharmacists</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">View Records</button>
+                    </form>
+            <div class="d-flex justify-content-between">
+                {% include 'back_button.html' %}
+                {% include 'logout_button.html' %}
+            </div>
+{% endblock %}

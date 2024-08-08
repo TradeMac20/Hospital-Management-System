@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <h2>Delete Account</h2>
+                <form method="POST" action="{{ url_for('delete_account') }}">
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select class="form-control" id="role" name="role" required>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="pharmacist">Pharmacist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="id">ID:</label>
+                        <input type="text" class="form-control" id="id" name="id" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}View All Patient Reports{% endblock %}
+
+{% block content %}
+    <h1>All Patient Reports</h1>
+    <ul>
+        {% for report in patient_reports %}
+            <li>
+                <strong>Patient ID:</strong> {{ report.patient_id }}<br>
+                <strong>Doctor ID:</strong> {{ report.doctor_id }}<br>
+                <strong>Report:</strong> {{ report.report }}<br>
+                <strong>Drugs:</strong> {{ report.drugs }}<br>
+                <strong>Referrals:</strong> {{ report.referrals }}<br>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

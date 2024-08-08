@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Details{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Patient Details</h1>
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ patient.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Name</th>
+                        <td>{{ patient.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td>{{ patient.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Sex</th>
+                        <td>{{ patient.sex }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{ patient.age }}</td>
+                    </tr>
+                    <tr>
+                        <th>Height</th>
+                        <td>{{ patient.height }}</td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>{{ patient.weight }}</td>
+                    </tr>
+                    <tr>
+                        <th>Body Temperature</th>
+                        <td>{{ patient.body_temperature }}</td>
+                    </tr>
+                    <tr>
+                        <th>Pulse Rate</th>
+                        <td>{{ patient.pulse_rate }}</td>
+                    </tr>
+                    <tr>
+                        <th>Respiration Rate</th>
+                        <td>{{ patient.respiration_rate }}</td>
+                    </tr>
+                    <tr>
+                        <th>Blood Pressure</th>
+                        <td>{{ patient.blood_pressure }}</td>
+                    </tr>
+                    <tr>
+                        <th>Assigned Doctor</th>
+                        <td>{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</td>
+                    </tr>
+                </table>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

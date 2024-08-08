@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <h2>Pharmacist Details</h2>
+                <p><strong>Name:</strong> {{ pharmacist.last_name }}, {{ pharmacist.first_name }}</p>
+                <p><strong>License Number:</strong> {{ pharmacist.license_number }}</p>
+                <p><strong>Years of Experience:</strong> {{ pharmacist.years_of_experience }}</p>
+                <form method="POST" action="{{ url_for('confirm_delete', role='pharmacist', id=pharmacist.id) }}">
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

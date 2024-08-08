@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Update Patient Review{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Update Doctor Review</h1>
+                <form method="post" action="{{ url_for('update_doctor_review') }}">
+                    <div class="form-group">
+                        <label for="patient_id">Enter Patient ID:</label>
+                        <input type="text" name="patient_id" class="form-control" id="patient_id" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Fetch Review</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

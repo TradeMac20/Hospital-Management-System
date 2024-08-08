@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Patients{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+                <h1>Welcome, Nurse {{ session['nurse_name'] }}</h1>
+                <hr>
+                <h2>Manage Patients</h2>
+                <div>
+                    <a href="{{ url_for('existing_patient') }}" class="btn btn-primary">Existing Patients</a>
+                    <a href="{{ url_for('new_patient') }}" class="btn btn-success">New Patient</a>
+                </div>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

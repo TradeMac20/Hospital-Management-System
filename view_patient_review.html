@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Review Information{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Patient Review Information</h1>
+                <ul class="list-group">
+                    {% if patient %}
+                    <li class="list-group-item"><strong>Patient ID:</strong> {{ patient_report.patient_id }}</li>
+                    <li class="list-group-item"><strong>Patient Name:</strong> {{ patient.first_name }} {{ patient.last_name }}</li>
+                    {% else %}
+                    <li class="list-group-item"><strong>Patient ID:</strong> Not Found</li>
+                    <li class="list-group-item"><strong>Patient Name:</strong> Not Found</li>
+                    {% endif %}
+                    <li class="list-group-item"><strong>Doctor ID:</strong> {{ patient_report.doctor_id }}</li>
+                    <li class="list-group-item"><strong>Doctor Name:</strong> Dr. {{ doctor.first_name }} {{ doctor.last_name }}</li>
+                    <li class="list-group-item"><strong>Diagnosis Report:</strong> {{ patient_report.report }}</li>
+                    <li class="list-group-item"><strong>Drug Recommendation:</strong> {{ patient_report.drugs }}</li>
+                    <li class="list-group-item"><strong>Referrals:</strong> {{ patient_report.referrals }}</li>
+                </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

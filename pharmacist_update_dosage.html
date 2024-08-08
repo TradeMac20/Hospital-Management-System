@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Update Dosage Information{% endblock %}
+
+{% block content %}
+    <h1>Update Dosage Information</h1>
+    <form method="POST" action="{{ url_for('pharmacist_update_dosage') }}">
+        <input type="hidden" name="patient_report_id" value="{{ dosage.patient_report_id }}">
+        <div class="form-group">
+            <label for="dosage">Dosage</label>
+            <input type="text" class="form-control" id="dosage" name="dosage" value="{{ dosage.dosage }}" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="{{ dosage.price }}" required>
+        </div>
+        <div class="form-group">
+            <label for="availability">Availability</label>
+            <select class="form-control" id="availability" name="availability" required>
+                <option value="True" {% if dosage.availability %}selected{% endif %}>Available</option>
+                <option value="False" {% if not dosage.availability %}selected{% endif %}>Not Available</option>
+            </select>
+        </div>
+        <button type="submit" name="update_dosage" class="btn btn-primary">Update</button>
+        <div class="d-flex justify-content-between">
+            {% include 'back_button.html' %}
+            {% include 'logout_button.html' %}
+        </div>
+    </form>
+{% endblock %}

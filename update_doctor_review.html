@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Update Patient Review{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Update Doctor Review</h1>
+                <form method="post" action="{{ url_for('update_doctor_review') }}">
+                    <input type="hidden" name="patient_id" value="{{ patient_report.patient_id }}">
+                    <div class="form-group">
+                        <label for="patient_name">Patient Name:</label>
+                        <input type="text" class="form-control" id="patient_name" value="{{ patient.first_name }} {{ patient.last_name }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor_name">Doctor Name:</label>
+                        <input type="text" class="form-control" id="doctor_name" value="Dr. {{ doctor.first_name }} {{ doctor.last_name }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="report">Diagnosis Report:</label>
+                        <textarea name="report" class="form-control" id="report">{{ patient_report.report }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="drugs">Drug Recommendation:</label>
+                        <textarea name="drugs" class="form-control" id="drugs">{{ patient_report.drugs }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="referrals">Referrals:</label>
+                        <textarea name="referrals" class="form-control" id="referrals">{{ patient_report.referrals }}</textarea>
+                    </div>
+                    <button type="submit" name="update_review" class="btn btn-primary">Update Review</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

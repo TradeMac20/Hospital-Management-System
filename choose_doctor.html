@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Doctor{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Choose Doctor</h1>
+                <form action="{{ url_for('assign_patient_to_doctor') }}" method="POST">
+                    <input type="hidden" name="patient_id" value="{{ patient_id }}">
+                    <div class="form-group">
+                        <label for="doctor_id">Select Doctor</label>
+                        <select class="form-control" id="doctor_id" name="doctor_id" required>
+                            {% for doctor in doctors %}
+                            <option value="{{ doctor.id }}">{{ doctor.first_name }} {{ doctor.last_name }} ({{ doctor.specialization }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Assign Doctor</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

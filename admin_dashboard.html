@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+                <h1>Administrator Dashboard</h1>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="{{ url_for('view_records') }}" class="btn btn-primary btn-lg m-3">View Records</a>
+                        <a href="{{ url_for('add_new_account') }}" class="btn btn-secondary btn-lg m-3">Add New Accounts</a>
+                        <a href="{{ url_for('update_account') }}" class="btn btn-info btn-lg m-3">Update Accounts Info</a>
+                        <a href="{{ url_for('delete_account') }}" class="btn btn-danger btn-lg m-3">Delete Accounts</a>
+                    </div>
+                </div>    
+   <div class="d-flex justify-content-between">
+    {% include 'back_button.html' %}
+    {% include 'logout_button.html' %}
+</div>
+
+{% endblock %}
+
+
+        

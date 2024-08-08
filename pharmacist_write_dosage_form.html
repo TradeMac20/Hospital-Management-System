@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Write Dosage Information{% endblock %}
+
+{% block content %}
+    <h1>Write Dosage Information</h1>
+    <form method="POST" action="{{ url_for('pharmacist_write_dosage') }}">
+        <div class="form-group">
+            <label for="patient_id">Patient ID</label>
+            <input type="text" class="form-control" id="patient_id" name="patient_id" required>
+        </div>
+        <div class="form-group">
+            <label for="dosage">Dosage</label>
+            <input type="text" class="form-control" id="dosage" name="dosage" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" required>
+        </div>
+        <div class="form-group">
+            <label for="availability">Availability</label>
+            <select class="form-control" id="availability" name="availability" required>
+                <option value="True">Available</option>
+                <option value="False">Not Available</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

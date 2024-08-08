@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Update Dosage Information{% endblock %}
+
+{% block content %}
+    <h1>Update Dosage Information</h1>
+    <form method="POST" action="{{ url_for('pharmacist_update_dosage') }}">
+        <div class="form-group">
+            <label for="patient_report_id">Patient Report ID</label>
+            <input type="text" class="form-control" id="patient_report_id" name="patient_report_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

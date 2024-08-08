@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Patients{% endblock %}
+
+{% block content %}
+        <!-- Main Content -->
+                    <div class="about-container">
+                        <h1 style ="text-align: center">New Report</h1>
+                        <!-- Add form for writing new report -->
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="patientId">Patient ID</label>
+                                <input type="text" class="form-control" id="patientId" name="patientId" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="report">Report</label>
+                                <textarea class="form-control" id="report" name="report" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="recommendation">Drug Recommendation</label>
+                                <textarea class="form-control" id="recommendation" name="recommendation" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Report</button>
+                        </form>
+            <div class="d-flex justify-content-between">
+                {% include 'back_button.html' %}
+                {% include 'logout_button.html' %}
+            </div>
+{% endblock %}

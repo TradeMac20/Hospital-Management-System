@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <h2>Nurse Details</h2>
+                <p><strong>Name:</strong> {{ nurse.last_name }}, {{ nurse.first_name }}</p>
+                <p><strong>Department:</strong> {{ nurse.department }}</p>
+                <p><strong>Years of Experience:</strong> {{ nurse.years_of_experience }}</p>
+                <form method="POST" action="{{ url_for('confirm_delete', role='nurse', id=nurse.id) }}">
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

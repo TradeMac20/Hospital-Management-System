@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ role.capitalize() }} Account{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Edit {{ role.capitalize() }} Account</h2>
+    <form method="POST" action="{{ url_for('update_account', role=role, id=record.id) }}">
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ record.first_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ record.last_name }}" required>
+        </div>
+        {% if role == 'doctor' %}
+        <div class="form-group">
+            <label for="specialization">Specialization:</label>
+            <select class="form-control" id="specialization" name="specialization" required>
+                <option value="Cardiology" {% if record.specialization == 'Cardiology' %}selected{% endif %}>Cardiology</option>
+                <option value="Dermatology" {% if record.specialization == 'Dermatology' %}selected{% endif %}>Dermatology</option>
+                <option value="Neurology" {% if record.specialization == 'Neurology' %}selected{% endif %}>Neurology</option>
+                <option value="Oncology" {% if record.specialization == 'Oncology' %}selected{% endif %}>Oncology</option>
+                <option value="Orthopedics" {% if record.specialization == 'Orthopedics' %}selected{% endif %}>Orthopedics</option>
+                <option value="Pediatrics" {% if record.specialization == 'Pediatrics' %}selected{% endif %}>Pediatrics</option>
+                <option value="Psychiatry" {% if record.specialization == 'Psychiatry' %}selected{% endif %}>Psychiatry</option>
+                <option value="Pulmonology" {% if record.specialization == 'Pulmonology' %}selected{% endif %}>Pulmonology</option>
+                <option value="Gastroenterology" {% if record.specialization == 'Gastroenterology' %}selected{% endif %}>Gastroenterology</option>
+                <option value="Endocrinology" {% if record.specialization == 'Endocrinology' %}selected{% endif %}>Endocrinology</option>
+            </select>
+        </div>
+        {% elif role == 'nurse' %}
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <select class="form-control" id="department" name="department" required>
+                <option value="Pediatric Nursing" {% if record.department == 'Pediatric Nursing' %}selected{% endif %}>Pediatric Nursing</option>
+                <option value="Critical Care Nursing" {% if record.department == 'Critical Care Nursing' %}selected{% endif %}>Critical Care Nursing</option>
+                <option value="Oncology Nursing" {% if record.department == 'Oncology Nursing' %}selected{% endif %}>Oncology Nursing</option>
+                <option value="Cardiac Nursing" {% if record.department == 'Cardiac Nursing' %}selected{% endif %}>Cardiac Nursing</option>
+                <option value="Neonatal Nursing" {% if record.department == 'Neonatal Nursing' %}selected{% endif %}>Neonatal Nursing</option>
+                <option value="Psychiatric Nursing" {% if record.department == 'Psychiatric Nursing' %}selected{% endif %}>Psychiatric Nursing</option>
+                <option value="Emergency Nursing" {% if record.department == 'Emergency Nursing' %}selected{% endif %}>Emergency Nursing</option>
+            </select>
+        </div>
+        {% elif role == 'pharmacist' %}
+        <div class="form-group">
+            <label for="license_number">License Number:</label>
+            <input type="text" class="form-control" id="license_number" name="license_number" value="{{ record.license_number }}" required>
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="years_of_experience">Years of Experience:</label>
+            <input type="number" class="form-control" id="years_of_experience" name="years_of_experience" value="{{ record.years_of_experience }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Account</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="{{ url_for('update_account') }}" class="btn btn-secondary">Back</a>
+    </div>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

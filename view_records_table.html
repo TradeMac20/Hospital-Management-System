@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}View {{ record_type.capitalize() }} Records{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">View {{ record_type.capitalize() }} Records</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                {% if record_type == 'doctor' %}
+                <th>Specialization</th>
+                {% elif record_type == 'nurse' %}
+                <th>Department</th>
+                {% elif record_type == 'pharmacist' %}
+                <th>License Number</th>
+                {% endif %}
+                <th>Years of Experience</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.id }}</td>
+                <td>{{ record.first_name }}</td>
+                <td>{{ record.last_name }}</td>
+                {% if record_type == 'doctor' %}
+                <td>{{ record.specialization }}</td>
+                {% elif record_type == 'nurse' %}
+                <td>{{ record.department }}</td>
+                {% elif record_type == 'pharmacist' %}
+                <td>{{ record.license_number }}</td>
+                {% endif %}
+                <td>{{ record.years_of_experience }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

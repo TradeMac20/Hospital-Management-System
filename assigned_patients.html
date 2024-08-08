@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Assigned Patients{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">Assigned Patients</h1>
+                <ul class="list-group">
+                    {% for patient in patients %}
+                        <li class="list-group-item">
+                            {{ patient.first_name }} {{ patient.last_name }} - ID: {{ patient.id }}
+                        </li>
+                    {% endfor %}
+                </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Details{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+                <h2>Patient Details</h2>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <td>{{ patient.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">First Name</th>
+                            <td>{{ patient.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Last Name</th>
+                            <td>{{ patient.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sex</th>
+                            <td>{{ patient.sex }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Age</th>
+                            <td>{{ patient.age }}</td>
+                        </tr>
+                        <!-- Add more details as per your Patient model -->
+                    </tbody>
+                </table>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

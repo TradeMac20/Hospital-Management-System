@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}View All Patients{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">All Patients</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Sex</th>
+                            <th>Age</th>
+                            <th>Assigned Doctor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for patient in patients %}
+                        <tr>
+                            <td>{{ patient.id }}</td>
+                            <td>{{ patient.first_name }}</td>
+                            <td>{{ patient.last_name }}</td>
+                            <td>{{ patient.sex }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

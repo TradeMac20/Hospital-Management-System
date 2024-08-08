@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Dosage Information{% endblock %}
+
+{% block content %}
+    <h1>Dosage Information</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Patient Report ID:</strong> {{ dosage.patient_report_id }}</li>
+        <li class="list-group-item"><strong>Dosage:</strong> {{ dosage.dosage }}</li>
+        <li class="list-group-item"><strong>Price:</strong> {{ dosage.price }}</li>
+        <li class="list-group-item"><strong>Availability:</strong> {{ 'Available' if dosage.availability else 'Not Available' }}</li>
+    </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

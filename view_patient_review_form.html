@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}View Patient Review{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">View Patient Review</h1>
+                <form action="{{ url_for('view_patient_review') }}" method="POST">
+                    <div class="form-group">
+                        <label for="patient_id">Patient ID</label>
+                        <input type="text" class="form-control" id="patient_id" name="patient_id" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">View Review</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

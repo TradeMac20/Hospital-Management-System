@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Patients{% endblock %}
+
+{% block content %}
+        <!-- Main Content -->
+                    <div class="about-container">
+                        <h1>Existing Patients</h1>
+                        <form action="{{ url_for('existing_patient') }}" method="POST">
+                            <div class="form-group">
+                                <label for="patientId">Patient ID</label>
+                                <input type="text" class="form-control" id="patientId" name="patientId" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">View Patient Data</button>
+                        </form>
+            <div class="d-flex justify-content-between">
+                {% include 'back_button.html' %}
+                {% include 'logout_button.html' %}
+            </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}View Patient by ID{% endblock %}
+
+{% block content %}
+                <h1 style="text-align: center;">View Patient by ID</h1>
+                <form action="{{ url_for('view_patient_by_id') }}" method="POST">
+                    <div class="form-group">
+                        <label for="patientId">Patient ID</label>
+                        <input type="text" class="form-control" id="patientId" name="patientId" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">View Patient</button>
+                </form>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}

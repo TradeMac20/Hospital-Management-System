@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Patients{% endblock %}
+
+{% block content %}
+        <!-- Main Content -->
+                        <h1 style ="text-align: center">Add Prescriptions</h1>
+                        <!-- Add form for writing new dosage -->
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="patientId">Patient ID</label>
+                                <input type="text" class="form-control" id="patientId" name="patientId" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dosage">Dosage info amd amount</label>
+                                <textarea class="form-control" id="dosage" name="dosage" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Drug Price</label>
+                                <textarea class="form-control" id="price" name="price" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Prescriptions</button>
+                        </form>
+            <div class="d-flex justify-content-between">
+                {% include 'back_button.html' %}
+                {% include 'logout_button.html' %}
+            </div>
+{% endblock %}

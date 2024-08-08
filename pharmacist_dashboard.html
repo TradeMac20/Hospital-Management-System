@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Pharmacist Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Pharmacist Dashboard</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{{ url_for('pharmacist_view_all_reports') }}">View All Patients</a></li>
+        <li class="list-group-item"><a href="{{ url_for('pharmacist_view_report') }}">View Patient by ID</a></li>
+        <li class="list-group-item"><a href="{{ url_for('pharmacist_write_dosage') }}">Write Dosage Details</a></li>
+        <li class="list-group-item"><a href="{{ url_for('pharmacist_view_dosage') }}">View Dosage Information</a></li>
+        <li class="list-group-item"><a href="{{ url_for('pharmacist_update_dosage') }}">Update Dosage Information</a></li>
+    </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}
+

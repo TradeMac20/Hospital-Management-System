@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Report{% endblock %}
+
+{% block content %}
+    <h1>Patient Report</h1>
+    <ul>
+        <li><strong>Patient ID:</strong> {{ patient_report.patient_id }}</li>
+        <li><strong>Doctor ID:</strong> {{ patient_report.doctor_id }}</li>
+        <li><strong>Report:</strong> {{ patient_report.report }}</li>
+        <li><strong>Drugs:</strong> {{ patient_report.drugs }}</li>
+        <li><strong>Referrals:</strong> {{ patient_report.referrals }}</li>
+    </ul>
+    <div class="d-flex justify-content-between">
+        {% include 'back_button.html' %}
+        {% include 'logout_button.html' %}
+    </div>
+{% endblock %}
